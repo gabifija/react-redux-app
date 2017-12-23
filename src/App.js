@@ -53,7 +53,7 @@ class App extends Component {
 
   render() {
   	const style = {
-  		backgroundColor: 'white',
+  		backgroundColor: 'green',
   		font: 'inherit',
   		border: '1px solid blue',
   		padding: '8px',
@@ -64,31 +64,33 @@ class App extends Component {
 
 		if (this.state.showPersons) {
 			persons = (
-	    <div>
-	    	{this.state.persons.map((person, index) => {
-	    		return <Person
-	    			click={() => this.deletePersonHandler(index)}
-	    			name={person.name}
-	    			age={person.age}
-						key={person.id}
-						changed={(event) => this.nameChangedHandler(event, person.id)} />
-	    	})}
-			</div>
-  			);
-  		}
+	    	<div>
+	    		{this.state.persons.map((person, index) => {
+	    			return <Person
+	    				click={() => this.deletePersonHandler(index)}
+	    				name={person.name}
+	    				age={person.age}
+							key={person.id}
+							changed={(event) => this.nameChangedHandler(event, person.id)} />
+	    		})}
+				</div>
+  		);
 
-    	return (
-      	<div className="App">
-        	<h1>Hi, I am React App!</h1>
-        	<p>This is really working!</p>
-        	<button
-        		style={style}
-        		onClick={this.tooglePersonsHandler}>Switch Name</button>
-      		{persons}
-      	</div>
-    	);
-    	// return React.createElement('div', {className: 'App' }, React.createElement('h1', null, 'Hi, I am React App'));
+			style.backgroundColor = 'red';
   	}
+
+  	return (
+    	<div className="App">
+      	<h1>Hi, I am React App!</h1>
+      	<p>This is really working!</p>
+      	<button
+      		style={style}
+      		onClick={this.tooglePersonsHandler}>Toogle Persons</button>
+    		{persons}
+    	</div>
+  	);
+    	// return React.createElement('div', {className: 'App' }, React.createElement('h1', null, 'Hi, I am React App'));
+  }
 }
 
 export default App;
