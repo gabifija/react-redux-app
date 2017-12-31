@@ -26,6 +26,23 @@ class App extends Component {
 		console.log('[App.js] Inside componentDidMount');
 	}
 
+	componentWillReceiveProps(nextProps) {
+    console.log('[update App.js]', nextProps)
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[Update App.js] shouldComponentUpdate()', nextProps, nextState)
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('[Update App.js] componentWillUpdate', nextProps, nextState)
+  }
+
+  componentDidUpdate () {
+    console.log('[Update App.js] componentDidUpdate')
+  }
+
 	switchNameHandler = (newName) => {
 		this.setState({
 			persons: [
