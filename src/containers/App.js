@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
-class App extends Component {
+class App extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -28,11 +28,6 @@ class App extends Component {
 
 	componentWillReceiveProps(nextProps) {
     console.log('[update App.js]', nextProps)
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[Update App.js] shouldComponentUpdate()', nextProps, nextState)
-    return true;
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -93,6 +88,7 @@ class App extends Component {
 
   	return (
 			<div className={classes.App}>
+				<button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>
 				<Cockpit
 					appTitle={this.props.title}
 					showPersons={this.state.showPersons}
